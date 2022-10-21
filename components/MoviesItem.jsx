@@ -1,28 +1,53 @@
-import React from 'react'
+import React, {useEffect, useState} from "react";
 import Link from 'next/link'
 import Image from 'next/image'
 
-const MoviesItem = (backgroundImg) => {
+const MoviesItem = ({UID}) => {
+  const [id, setID] = useState("616820")
+  const [title, setTitle] = useState("moviename")
+  const [movieImg, setmovieImg] = useState("https://image.tmdb.org/t/p/w185/3uDwqxbr0j34rJVJMOW6o8Upw5W.jpg")
+  const [rating, setRating] = useState(5)
+
+  let apiKey = "1e14fdee0ea09ca708c0b3a27257ede2";
+  let startUrl = "https://api.themoviedb.org/3/";
+
+  async function popular (){
+    let url = 'https://api.themoviedb.org/3/movie/popular?api_key=1e14fdee0ea09ca708c0b3a27257ede2&language=en-US&page=1'
+    const response = await fetch(url);
+    const data = await response.json();
+    setID(data.results[UID].id)
+ 
+  };
+
+  useEffect(() => {
+    async function findMovieDetails (){
+      let url = ''.concat(startUrl, 'movie/', id ,'?api_key=' , apiKey)
+      // console.log(url)
+      const response = await fetch(url);
+      const data = await response.json();
+      setTitle(data.title)
+      setmovieImg(''.concat(`https://image.tmdb.org/t/p/w185`,data.poster_path))
+      let roundedRating = data.vote_average.toFixed(2)
+      setRating(roundedRating)
+      
+
+        
+    };
+    popular()
+    findMovieDetails()
+  })
+
   return (
     <div>
-        <Image
-              className="rounded-xl group-hover:opacity-10"
-              src="/backgroundImg"
-              width="300px"
-              height="300px"
-              alt="/"
+        <Image 
+              className=" bg-black"
+              src={movieImg}
+              height ={278}
+              width={185}
+              
             />
-            {/* <div className="hidden group-hover:block absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-              <h3 className="text-2xl text-white tracking-wider text-center">
-                {title}
-              </h3>
-              <p className="pb-4 pt-2 text-white text-center">React JS</p>
-              <Link href={movieUrl}>
-                <p className="text-center py-3 rounded-lg bg-white text-gray-700 font-bold text-lg cursor-pointer">
-                  More Info
-                </p>
-              </Link>
-            </div> */}
+            <p>{title}</p>
+            <p>{rating} / 10</p>
     </div>
   )
 }
