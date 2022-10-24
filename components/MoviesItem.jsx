@@ -39,7 +39,7 @@ const MoviesItem = ({ UID }) => {
   });
 
   return (
-    <div>
+    <div className="">
       <Image className=" bg-black" src={movieImg} height={278} width={185} />
       <p>{title}</p>
       <p>{rating} / 10</p>
