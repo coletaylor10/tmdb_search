@@ -18,6 +18,7 @@ const SearchItem = ({ UID, keyword }) => {
   let searchUrl ="https://www.themoviedb.org/movie/";
 
   useEffect(() => {
+    console.log("outside promise")
     async function findMovieDetails() {
       if (keyword !== undefined) {
         let url = "".concat(
