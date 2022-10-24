@@ -3,7 +3,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import SearchItem from "./SearchItem";
 import { useState, useEffect } from "react";
 
-const navBar = () => {
+const NavBar = () => {
   const [keyword, setKeyword] = useState("");
   function getSearch(val) {
       setKeyword(val.target.value);
@@ -34,4 +34,4 @@ const navBar = () => {
   );
 };
 
-export default navBar;
+export default NavBar;

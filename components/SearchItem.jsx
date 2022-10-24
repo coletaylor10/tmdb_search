@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const searchItem = ({ UID, keyword }) => {
+const SearchItem = ({ UID, keyword }) => {
   const [id, setID] = useState("616820");
   const [title, setTitle] = useState("moviename");
   const [overview, setOverview] = useState("overviewtext");
@@ -78,4 +78,4 @@ const searchItem = ({ UID, keyword }) => {
   );
 };
 
-export default searchItem;
+export default SearchItem;
