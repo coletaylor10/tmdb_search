@@ -29,8 +29,8 @@ const SearchItem = ({ UID, keyword }) => {
           "&query=",
           keyword
         );
+        console.log("url is", url)
         const response = await fetch(url);
-        console.log("url is", url);
         const data = await response.json();
         try {
           setID(data.results[UID].id);
