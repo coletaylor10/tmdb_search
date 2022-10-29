@@ -15,10 +15,10 @@ const SearchItem = ({ UID, keyword }) => {
 
   let apiKey = "1e14fdee0ea09ca708c0b3a27257ede2";
   let startUrl = "https://api.themoviedb.org/3/search/";
-  let searchUrl ="https://www.themoviedb.org/movie/";
+  let searchUrl = "https://www.themoviedb.org/movie/";
 
   useEffect(() => {
-    console.log("outside promise")
+    console.log("outside promise");
     async function findMovieDetails() {
       if (keyword !== undefined) {
         let url = "".concat(
@@ -30,14 +30,14 @@ const SearchItem = ({ UID, keyword }) => {
           keyword
         );
         const response = await fetch(url);
-        console.log("url is", url)
+        console.log("url is", url);
         const data = await response.json();
         try {
           setID(data.results[UID].id);
           console.log(linktoURL);
           setTitle(data.results[UID].title);
-          setLinkToURL("".concat(searchUrl,id))
-          console.log(linktoURL)
+          setLinkToURL("".concat(searchUrl, id));
+          console.log(linktoURL);
 
           setmovieImg(
             "".concat(
@@ -55,7 +55,7 @@ const SearchItem = ({ UID, keyword }) => {
       //   let roundedRating = data.vote_average.toFixed(2);
       //   setRating(roundedRating);
     }
-    
+
     findMovieDetails();
   });
 
@@ -68,7 +68,8 @@ const SearchItem = ({ UID, keyword }) => {
             src={movieImg}
             height={138}
             width={92}
-          ></Image>
+            alt="/"
+          />
           <div className="px-4">
             <p>{title}</p>
 
