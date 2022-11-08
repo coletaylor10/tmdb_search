@@ -7,6 +7,7 @@ const NavBar = () => {
   const [keyword, setKeyword] = useState("");
   function getSearch(val) {
       setKeyword(val.target.value);
+      console.log(keyword)
     
     
   }
