@@ -1,30 +1,45 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from "react";
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import MoviesItem from './MoviesItem'
 
-const Movieinfo = (id) => {
-    const [movieID, setMovieID] = useState(id.id)
+const Movieinfo = () => {
+    const router = useRouter();
+    const [movieID, setMovieID] = useState();
     const [title, setTitle] = useState("moviename");
     const [movieImg, setmovieImg] = useState(
         "https://image.tmdb.org/t/p/w185/3uDwqxbr0j34rJVJMOW6o8Upw5W.jpg"
       );
     const [rating, setRating] = useState(5);
-    console.log(movieID)
+    useEffect(() =>{
+        setMovieID(router.query.id);
+        async function searchID() {
+            let apiKey = "1e14fdee0ea09ca708c0b3a27257ede2";
+            let url = "".concat('https://api.themoviedb.org/3/movie/',movieID,"?api_key=",apiKey);
+            const response = await fetch(url);
+            const data = await response.json();
+            setTitle(data.title);
+            setmovieImg(
+                "".concat(`https://image.tmdb.org/t/p/w185`, data.poster_path)
+              );
+            try{
+                let roundedRating = data.vote_average.toFixed(2);
+                setRating(roundedRating);
+            }catch(e){
 
-    async function searchID() {
-        let apiKey = "1e14fdee0ea09ca708c0b3a27257ede2";
-        let url = "".concat('https://api.themoviedb.org/3/movie/',movieID,"?api_key=",apiKey);
-        const response = await fetch(url);
-        const data = await response.json();
-        setTitle(data.title);
-        setmovieImg(
-            "".concat(`https://image.tmdb.org/t/p/w185`, data.poster_path)
-          );
-        let roundedRating = data.vote_average.toFixed(2);
-        setRating(roundedRating);
-        console.log(data)
-      }
-      searchID();
+            };
+            
+            
+            console.log(data);
+          }
+          searchID();
+        
+        
+        
+    
+    
+      },);
+
 
   return (
     <div>
