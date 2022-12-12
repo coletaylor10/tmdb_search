@@ -39,17 +39,19 @@ const MoviesItem = ({ UID }) => {
   });
 
   return (
-    <div className="">
-      <Image
-        className=" bg-black"
-        src={movieImg}
-        height={278}
-        width={185}
-        alt="/"
-      />
-      <p>{title}</p>
-      <p>{rating} / 10</p>
-    </div>
+    <Link href={`/movie/${id}`}>
+      <div className="">
+        <Image
+          className=" bg-black cursor-pointer"
+          src={movieImg}
+          height={278}
+          width={185}
+          alt="/"
+        />
+        <p>{title}</p>
+        <p>{rating} / 10</p>
+      </div>
+    </Link>
   );
 };
 

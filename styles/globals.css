@@ -28,4 +28,8 @@
       @apply shadow-xl border rounded-xl uppercase  bg-[#202225] hover:bg-[#374151] text-white
   }
 
+  Link{
+    @apply cursor-pointer
+  }
+
 }

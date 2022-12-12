@@ -31,7 +31,7 @@ const SearchItem = ({ UID, keyword }) => {
         );
         console.log("url is", url)
 
-        const response = await fetch(`api.themoviedb.org/3/search/movie/?api_key=1e14fdee0ea09ca708c0b3a27257ede2&query=j`);
+        //const response = await fetch(url);
         const data = await response.json();
         try {
           setID(data.results[UID].id);

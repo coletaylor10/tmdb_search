@@ -6,7 +6,7 @@ import axios from "axios";
 const Movies = () => {
 
   return (
-    <div className=" mt-64 w-full ">
+    <div className=" w-full ">
       <div className=" max-w-[1860px] mx-auto px-2 pt-4 pb-16">
         <h2 className=" text-3xl tracking-widest uppercase text-white">
           Popular Movies
