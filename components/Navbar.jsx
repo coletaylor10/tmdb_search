@@ -10,7 +10,7 @@ const NavBar = ({ data }) => {
       <div className=" w-full bg-white ">
         <div className="px-[40px] py-[40px] ">
           <a
-            href=""
+            href="/"
             className=" text-white font-bold text-8xl bg-red-500 px-16"
           >
             TMDB
@@ -21,7 +21,7 @@ const NavBar = ({ data }) => {
         <div className="w-[40%]">
           <ul className="flex justify-between ml-16 text-2xl font-bold">
             <li>
-              <a href="">Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
               <a href="">Movies</a>
@@ -30,7 +30,7 @@ const NavBar = ({ data }) => {
               <a href="">TV Series</a>
             </li>
             <li>
-              <a href="">FAQ</a>
+              <a href="/FAQ">FAQ</a>
             </li>
           </ul>
         </div>
