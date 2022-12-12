@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import MoviesItem from './MoviesItem'
 
-const movieinfo = (id) => {
+const Movieinfo = (id) => {
     const [movieID, setMovieID] = useState(id.id)
     const [title, setTitle] = useState("moviename");
     const [movieImg, setmovieImg] = useState(
@@ -44,4 +44,4 @@ const movieinfo = (id) => {
   )
 }
 
-export default movieinfo
+export default Movieinfo
