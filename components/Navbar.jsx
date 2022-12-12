@@ -3,6 +3,8 @@ import { AiOutlineSearch } from "react-icons/ai";
 import SearchItem from "./SearchItem";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
+
 
 
 
@@ -23,28 +25,29 @@ const NavBar = ({ data }) => {
     <div>
       <div className=" w-full bg-white ">
         <div className="px-[40px] py-[40px] ">
-          <a
+          <Link
             href="/"
             className=" text-white font-bold text-8xl bg-red-500 px-16"
           >
-            TMDB
-          </a>
+          TMDB
+          </Link>
+          
         </div>
       </div>
       <div className=" w-full bg-red-500 flex justify-between items-center py-2 mb-8">
         <div className="w-[40%]">
           <ul className="flex justify-between ml-16 text-2xl font-bold">
             <li>
-              <a href="/">Home</a>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <a href="">Movies</a>
+              <Link href="">Movies</Link>
             </li>
             <li>
-              <a href="">TV Series</a>
+              <Link href="">TV Series</Link>
             </li>
             <li>
-              <a href="/FAQ">FAQ</a>
+              <Link href="/FAQ">FAQ</Link>
             </li>
           </ul>
         </div>
