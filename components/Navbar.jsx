@@ -2,9 +2,23 @@ import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import SearchItem from "./SearchItem";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+
 
 
 const NavBar = ({ data }) => {
+
+  const [value,setValue] = useState();
+
+
+  const router = useRouter()
+  const keywordSearch = event =>{
+    event.preventDefault();
+    console.log("ENTER")
+    
+    router.push(`/search/${value}`)
+  };
+
   return (
     <div>
       <div className=" w-full bg-white ">
@@ -35,9 +49,11 @@ const NavBar = ({ data }) => {
           </ul>
         </div>
         <div className=" w-[50%] flex justify-around ">
-          <form className=" w-full" action="">
+          <form className=" w-full" onSubmit={keywordSearch}>
             <input
               className=" w-full marker:border text-black py-2 px-2"
+              value={value}
+              onChange={e => { setValue(e.currentTarget.value); }}
               type="text"
               placeholder="Search Keywords"
             />
