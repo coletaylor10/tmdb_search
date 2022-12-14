@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const MoviesItem = ({ UID }) => {
+const TvItem = ({ UID }) => {
   const [id, setID] = useState("616820");
   const [title, setTitle] = useState("moviename");
   const [movieImg, setmovieImg] = useState(
     "https://image.tmdb.org/t/p/w185/3uDwqxbr0j34rJVJMOW6o8Upw5W.jpg"
   );
   const [rating, setRating] = useState(5);
-  const [summary, setSummary] = useState("Undefined");
+  const [summary, setSummary] = useState("Undefined")
 
   let apiKey = "1e14fdee0ea09ca708c0b3a27257ede2";
   let startUrl = "https://api.themoviedb.org/3/";
 
   async function popular() {
     let url =
-      "https://api.themoviedb.org/3/movie/popular?api_key=1e14fdee0ea09ca708c0b3a27257ede2&language=en-US&page=1";
+      "https://api.themoviedb.org/3/tv/popular?api_key=1e14fdee0ea09ca708c0b3a27257ede2&language=en-US&page=1";
     const response = await fetch(url);
     const data = await response.json();
     setID(data.results[UID].id);
@@ -25,25 +25,30 @@ const MoviesItem = ({ UID }) => {
 
   useEffect(() => {
     async function findMovieDetails() {
-      let url = "".concat(startUrl, "movie/", id, "?api_key=", apiKey);
+      let url = "".concat(startUrl, "tv/", id, "?api_key=", apiKey);
       // console.log(url)
       const response = await fetch(url);
       const data = await response.json();
-      setTitle(data.title);
+      setTitle(data.name);
       setmovieImg(
         "".concat(`https://image.tmdb.org/t/p/w185`, data.poster_path)
       );
-      let roundedRating = data.vote_average.toFixed(2);
-      setRating(roundedRating);
-    }
+      try{
+        let roundedRating = data.vote_average.toFixed(2);
+        setRating(roundedRating);
+      }catch(e){
+
+      }
+      
+    };
     popular();
     findMovieDetails();
   });
 
   return (
-    <div className="flex">
-      <Link href={`/movie/${id}`}>
-        <div className=" flex mb-10 py-2 ">
+    <div className="flex flex-col">
+      <div className="px-2 py-2">
+        <Link href={`/movie/${id}`}>
           <Image
             className=" bg-black cursor-pointer"
             src={movieImg}
@@ -51,15 +56,14 @@ const MoviesItem = ({ UID }) => {
             width={185}
             alt="/"
           />
-          <div className=" flex flex-col px-4">
-          <p className="font-bold text-lg">{title}</p>
-          <p>{summary}</p>
-          <p>{rating} / 10</p>
-          </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
+      <div className="">
+        <p>{title}</p>
+        <p>{rating} / 10</p>
+      </div>
     </div>
   );
 };
 
-export default MoviesItem;
+export default TvItem;

@@ -1,71 +1,43 @@
 import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
 import SearchItem from "./SearchItem";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-
-
-
 const NavBar = ({ data }) => {
+  const [value, setValue] = useState();
 
-  const [value,setValue] = useState();
-
-
-  const router = useRouter()
-  const keywordSearch = event =>{
+  const router = useRouter();
+  const keywordSearch = (event) => {
     event.preventDefault();
-    console.log("ENTER")
-    
-    router.push(`/search/${value}`)
+    console.log("ENTER");
+
+    router.push(`/search/${value}`);
   };
 
   return (
-    <div>
-      <div className=" w-full bg-white ">
-        <div className="px-[40px] py-[40px] ">
-          <Link
-            href="/"
-            className=" text-white font-bold text-8xl bg-red-500 px-16"
-          >
-          TMDB
-          </Link>
-          
+    <div className="bg-[#121212] mb-8">
+      <div className=" mx-auto flex items-center justify-around max-w-3xl text-white font-mono text-2xl ">
+        <div>
+          <Link href={"/"}>TMDB</Link>
         </div>
-      </div>
-      <div className=" w-full bg-red-500 flex justify-between items-center py-2 mb-8">
-        <div className="w-[40%]">
-          <ul className="flex justify-between ml-16 text-2xl font-bold">
-            <li>
-              <Link href="/">Home</Link>
-            </li>
-            <li>
-              <Link href="">Movies</Link>
-            </li>
-            <li>
-              <Link href="">TV Series</Link>
-            </li>
-            <li>
-              <Link href="/FAQ">FAQ</Link>
-            </li>
-          </ul>
+        <form className="" onSubmit={keywordSearch}>
+          <input
+            className=" border-none outline-none caret-black px-2 text-black"
+            value={value}
+            onChange={(e) => {
+              setValue(e.currentTarget.value);
+            }}
+            type="text"
+            placeholder="Search Keywords"
+          />
+        </form>
+        <div>
+          <Link href="/FAQ">FAQ</Link>
         </div>
-        <div className=" w-[50%] flex justify-around ">
-          <form className=" w-full" onSubmit={keywordSearch}>
-            <input
-              className=" w-full marker:border text-black py-2 px-2"
-              value={value}
-              onChange={e => { setValue(e.currentTarget.value); }}
-              type="text"
-              placeholder="Search Keywords"
-            />
-          </form>
-          <ul className="  w-[40%] flex pl-16 py-2 ">
-            <li className=" pr-8 cursor-not-allowed  ">Login</li>
-            <li className=" cursor-not-allowed">Sign Up</li>
-          </ul>
-        </div>
+        {/* Hamburger menu */}
+        {/* breakpoint */}
+        {/* sign In */}
       </div>
     </div>
   );
