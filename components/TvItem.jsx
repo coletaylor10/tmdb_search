@@ -3,13 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 
 const TvItem = ({ UID }) => {
-  const [id, setID] = useState("616820");
+  const [id, setID] = useState("119051");
   const [title, setTitle] = useState("moviename");
   const [movieImg, setmovieImg] = useState(
     "https://image.tmdb.org/t/p/w185/3uDwqxbr0j34rJVJMOW6o8Upw5W.jpg"
   );
   const [rating, setRating] = useState(5);
-  const [summary, setSummary] = useState("Undefined")
+  const [summary, setSummary] = useState("Undefined");
 
   let apiKey = "1e14fdee0ea09ca708c0b3a27257ede2";
   let startUrl = "https://api.themoviedb.org/3/";
@@ -33,14 +33,11 @@ const TvItem = ({ UID }) => {
       setmovieImg(
         "".concat(`https://image.tmdb.org/t/p/w185`, data.poster_path)
       );
-      try{
+      try {
         let roundedRating = data.vote_average.toFixed(2);
         setRating(roundedRating);
-      }catch(e){
-
-      }
-      
-    };
+      } catch (e) {}
+    }
     popular();
     findMovieDetails();
   });
@@ -49,13 +46,15 @@ const TvItem = ({ UID }) => {
     <div className="flex flex-col">
       <div className="px-2 py-2">
         <Link href={`/movie/${id}`}>
-          <Image
-            className=" bg-black cursor-pointer"
-            src={movieImg}
-            height={278}
-            width={185}
-            alt="/"
-          />
+          <div>
+            <Image
+              className=" bg-black cursor-pointer"
+              src={movieImg}
+              height={278}
+              width={185}
+              alt="/"
+            />
+          </div>
         </Link>
       </div>
       <div className="">

@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import MoviesItem from "./MoviesItem";
-import axios from "axios";
 import TvItem from "./TvItem";
+import Slideshow from "./Slideshow";
 
 const Movies = () => {
   return (
     <div>
       <div className="flex justify-around">
-        <div className="flex-col">
-          <h2 className="mb-2">SlideShow</h2>
-          <div className=" w-[720px] h-[335px] bg-white"></div>
-        </div>
+        <Slideshow />
         <div className=" mb-8">
           <h2 className=" mb-6 ">Popular Movies</h2>
           <div className=" h-[320px] overflow-y-scroll scroll max-w-2xl text-xs">
