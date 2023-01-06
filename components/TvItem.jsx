@@ -31,7 +31,7 @@ const TvItem = ({ UID }) => {
       const data = await response.json();
       setTitle(data.name);
       setmovieImg(
-        "".concat(`https://image.tmdb.org/t/p/w185`, data.poster_path)
+        "".concat(`https://image.tmdb.org/t/p/w780`, data.poster_path)
       );
       try {
         let roundedRating = data.vote_average.toFixed(2);
@@ -45,7 +45,7 @@ const TvItem = ({ UID }) => {
   return (
     <div className="flex flex-col">
       <div className="px-2 py-2">
-        <Link href={`/movie/${id}`}>
+        <Link href={`/tv/${id}`}>
           <div>
             <Image
               className=" bg-black cursor-pointer"

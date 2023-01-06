@@ -11,7 +11,7 @@ const Movies = () => {
         <Slideshow />
         <div className=" mb-8">
           <h2 className=" mb-6 ">Popular Movies</h2>
-          <div className=" h-[320px] overflow-y-scroll scroll max-w-2xl text-xs">
+          <div className=" h-[320px] overflow-y-scroll scroll max-w-4xl text-xs">
             <div>
               <MoviesItem UID={0} />
             </div>
