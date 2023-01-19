@@ -12,7 +12,7 @@ const FAQ = () => {
         <p>
           Thank you for viewing this text project. The main focus of this was to
           test my ability to use APIs and dynamic route tables. I thoroughly
-          enjoyed making this site as i've learnt so many things that you can
+          enjoyed making this site as i have learnt so many things that you can
           only really learn by digging into a project. This website uses
           Next.js, React, JS and the TMDB API. 
         </p>
