@@ -18,10 +18,12 @@ const MainSection = () => {
     <div className=" flex outline max-h-[80vh] w-full">
       <div className=" flex justify-around w-full">
         <div className="flex flex-col w-[50%]">
-          <h2 className="flex py-6">Movie of the Year</h2>
+          <h2 className="flex py-6 italic">Movie of the Year</h2>
           <Slideshow images={images} />
         </div>
+        <div className="w-[50%]">
         <ScrollMovies />
+        </div>
         {/*<FeaturedMovies />*/}
       </div>
     </div>

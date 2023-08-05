@@ -41,9 +41,9 @@ const MoviesItem = ({ UID }) => {
   });
 
   return (
-    <div>
+    <div className="" >
       <Link href={`/movie/${id}`}>
-        <div className=" flex mb-10 py-2 cursor-pointer ">
+        <div className="cursor-pointer grid grid-cols-4 gap-4 py-8 px-10 h-[300px]">
           <Image
             className="grayscale"
             src={movieImg}
@@ -51,9 +51,9 @@ const MoviesItem = ({ UID }) => {
             width={185}
             alt="/"
           />
-          <div className=" flex flex-col px-4">
-          <p className="font-bold text-xl">{title}</p>
-          <p className=" max-w-lg text-lg">{summary}</p>
+          <div className=" col-span-3">
+          <h2 className=" pb-2">{title}</h2>
+          <p className=" pb-2 text-s">{summary}</p>
           <p>{rating} / 10</p>
           </div>
         </div>

@@ -4,7 +4,7 @@ import MoviesItem from '../components/MoviesItem'
 const ScrollMovies = () => {
   return (
     <div>
-        <div className="overflow-y-scroll h-[100%] scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-300">
+        <div className="overflow-y-scroll max-h-[80vh] grid grid-rows-8">
           <div>
             <div>
               <MoviesItem UID={0} />
