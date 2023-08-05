@@ -45,7 +45,7 @@ const MoviesItem = ({ UID }) => {
       <Link href={`/movie/${id}`}>
         <div className=" flex mb-10 py-2 cursor-pointer ">
           <Image
-            className=" bg-black"
+            className="grayscale"
             src={movieImg}
             height={278}
             width={185}

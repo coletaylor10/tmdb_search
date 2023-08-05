@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
-import Movies from "../components/Movies";
+import MainSection from "../components/Sections/MainSection";
 import Navbar from "../components/Navbar";
 
 
@@ -52,7 +52,7 @@ export default function Home() {
       
        
       <Navbar  data={fullData} />
-      <Movies />
+      <MainSection />
     </div>
   );
 }
